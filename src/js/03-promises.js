@@ -1,3 +1,4 @@
+import Notiflix, { Notify } from 'notiflix';
 const form = document.querySelector('.form');
 
 function createPromise(position, delay) {
@@ -12,8 +13,8 @@ function createPromise(position, delay) {
     }, delay);
   });
   promise
-    .then(() => console.log(`✅ Fulfilled promise ${position} in ${delay}ms`))
-    .catch(() => console.log(`❌ Rejected promise ${position} in ${delay}ms`));
+    .then(() => Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`))
+    .catch(() => Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`));
   return promise;
 }
 
